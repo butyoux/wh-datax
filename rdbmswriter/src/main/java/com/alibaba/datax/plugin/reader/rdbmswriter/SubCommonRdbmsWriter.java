@@ -11,7 +11,8 @@ import java.sql.SQLException;
 import java.sql.Types;
 
 public class SubCommonRdbmsWriter extends CommonRdbmsWriter {
-    static {
+    public static void staticInit() {
+        System.out.println("DBUtil.loadDriverClass");
         DBUtil.loadDriverClass("writer", "rdbms");
     }
 

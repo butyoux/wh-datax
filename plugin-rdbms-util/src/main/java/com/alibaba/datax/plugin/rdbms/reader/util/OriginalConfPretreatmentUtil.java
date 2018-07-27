@@ -23,11 +23,13 @@ public final class OriginalConfPretreatmentUtil {
     public static DataBaseType DATABASE_TYPE;
 
     public static void doPretreatment(Configuration originalConfig) {
-        // 检查 username/password 配置（必填）
+        // 检查 username(必填), password 配置（选填），部分rdbms可不填密码（神策hive2 server）
         originalConfig.getNecessaryValue(Key.USERNAME,
                 DBUtilErrorCode.REQUIRED_VALUE);
+        /**
         originalConfig.getNecessaryValue(Key.PASSWORD,
                 DBUtilErrorCode.REQUIRED_VALUE);
+        */
         dealWhere(originalConfig);
 
         simplifyConf(originalConfig);

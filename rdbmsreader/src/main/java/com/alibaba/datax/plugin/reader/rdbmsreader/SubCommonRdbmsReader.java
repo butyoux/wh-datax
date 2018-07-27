@@ -24,7 +24,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class SubCommonRdbmsReader extends CommonRdbmsReader {
-    static {
+    public static void staticInit() {
+        System.out.println("DBUtil.loadDriverClass");
         DBUtil.loadDriverClass("reader", "rdbms");
     }
 

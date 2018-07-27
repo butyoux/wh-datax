@@ -426,7 +426,13 @@ public final class DBUtil {
         Statement stmt = conn.createStatement(ResultSet.TYPE_FORWARD_ONLY,
                 ResultSet.CONCUR_READ_ONLY);
         stmt.setFetchSize(fetchSize);
-        stmt.setQueryTimeout(queryTimeout);
+        try {
+            stmt.setQueryTimeout(queryTimeout);
+        }
+        catch (SQLException e){
+            // hiveserver2的jdbc接口不支持此设置
+            LOG.warn("The driver does not support set: QueryTimeout");
+        }
         return query(stmt, sql);
     }
 
