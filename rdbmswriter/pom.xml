@@ -62,7 +62,6 @@
 			<artifactId>plugin-rdbms-util</artifactId>
 			<version>${datax-project-version}</version>
 		</dependency>
-
 	</dependencies>
 
 	<build>

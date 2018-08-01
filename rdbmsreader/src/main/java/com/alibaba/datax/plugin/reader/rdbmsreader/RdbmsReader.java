@@ -36,6 +36,7 @@ public class RdbmsReader extends Reader {
                     com.alibaba.datax.plugin.rdbms.reader.Constant.FETCH_SIZE,
                     fetchSize);
 
+            SubCommonRdbmsReader.staticInit();
             this.commonRdbmsReaderMaster = new SubCommonRdbmsReader.Job(
                     DATABASE_TYPE);
             this.commonRdbmsReaderMaster.init(this.originalConfig);

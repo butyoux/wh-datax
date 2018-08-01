@@ -33,6 +33,7 @@ public class RdbmsWriter extends Writer {
                                         writeMode));
             }
 
+            SubCommonRdbmsWriter.staticInit();
             this.commonRdbmsWriterMaster = new SubCommonRdbmsWriter.Job(
                     DATABASE_TYPE);
             this.commonRdbmsWriterMaster.init(this.originalConfig);
